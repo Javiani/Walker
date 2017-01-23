@@ -44,28 +44,28 @@ Walker is just an abstraction to help us to walk through `json` data structures,
 
 ## API
 
-##### .prop( String )
+### .prop( String )
 Access a property and change `walker` context to that property.
 
-#### .path( Array[String] )
+### .path( Array[String] )
 A shortcut to avoid several `.prop()` calls.
 
-#### .prev( [Number] )
+### .prev( [Number] )
 Returns a level in the context. It can receive a number of levels to return to.
 
-#### .set( Any )
+### .set( Any )
 Changes the value of the current context.
 
-#### .propset( String, Any )
+### .propset( String, Any )
 Changes the value of the current property, without changing context.
 
-#### .then( Function( data ) )
+### .then( Function( data ) )
 The same as `.set` but uses a function to change the value of the current context. *The callback has to return any value* .
 
-#### .data()
+### .data()
 Returns the raw data of the current context.
 
-#### .value()
+### .value()
 Returns the entire json data structure with all modifications applied.
 
 ## Extensions
@@ -97,3 +97,8 @@ console.log( result.data() );
 console.log( result.value() );
 // { items:[ 2, 4, 6 ]}
 ```
+
+## Roadmap
+
+- Performance improvements
+- Adding more operators
