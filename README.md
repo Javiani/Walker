@@ -31,7 +31,7 @@ Walker is just an abstraction to help us to walk through `json` data structures,
 	// OUTPUT:
 	// {street: 'Av. Brg. Faria Lima - SP - Brazil', zip: '04538-133', type: 'work'}
 
-	consle.log( result.value() );
+	console.log( result.value() );
 	// OUTPUT:
 	// var user = {
 	// 	name: "Bob",
