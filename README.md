@@ -101,4 +101,4 @@ console.log( result.value() );
 ## Roadmap
 
 - Performance improvements
-- Adding more operators
+- More operators
