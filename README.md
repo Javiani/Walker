@@ -24,7 +24,7 @@ Walker is just an abstraction to help us to walk through `json` data structures,
 		.propset('name', 'Clark Kent')
 		.path(['addresses', 1, 'street'])
 		.set('Av. Brg. Faria Lima - SP - Brazil')
-		.prev()
+		.end()
 		.propset('zip', '04538-133');
 
 	console.log( result.data() );
@@ -50,8 +50,8 @@ Access a property and change `walker` context to that property.
 ### .path( Array[String] )
 A shortcut to avoid several `.prop()` calls.
 
-### .prev( [Number] )
-Returns a level in the context. It can receive a number of levels to return to.
+### .end()
+Resets context to root.
 
 ### .set( Any )
 Changes the value of the current context.
@@ -68,37 +68,8 @@ Returns the raw data of the current context.
 ### .value()
 Returns the entire json data structure with all modifications applied.
 
-## Extensions
-
-It's possible to extend `walker` with new operators, just check the `operators/array.js` to see how it's done.
-
-
-Example: Adding `.map` operator:
-
-```js
-(function( F ){
-	F.add(method, function( fn ){
-		return this.then(function( array ){
-			return array.map(fn);
-		});
-	});
-})(walker)
-```
-
-Usage:
-
-```js
-var result = walker({ items:[1,2,3] })
-	.prop('items')
-	.map(function(item){ return item*2; });
-
-console.log( result.data() );
-// [ 2, 4, 6 ]
-console.log( result.value() );
-// { items:[ 2, 4, 6 ]}
-```
+### .map( fn ), .reduce( fn ), .filter( fn )
+Same as native array methods, it gets a function which receive the current context and context must be an array.
 
 ## Roadmap
-
-- Performance improvements
 - More operators
