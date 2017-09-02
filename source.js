@@ -27,7 +27,10 @@ export default state =>{
 			let where  = path[ path.length-1 ]
 			let parent = path[ path.length-2 ]
 
-			if(!parent) {
+			if( !where ){
+				state = value
+				pointer = state
+			}else if(!parent) {
 				state[ where ] = value
 				pointer = value
 			}else{

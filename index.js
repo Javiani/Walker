@@ -29,8 +29,11 @@
 				var where = path[path.length - 1];
 				var parent = path[path.length - 2];
 
-				if (!parent) {
-					state[where] = value;
+				if( !where ){
+					state = value;
+					pointer = state;
+				}else if(!parent) {
+					state[ where ] = value;
 					pointer = value;
 				} else {
 					path.reduce(function (acc, key) {
